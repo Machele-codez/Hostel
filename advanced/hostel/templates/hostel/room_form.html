@@ -1,0 +1,21 @@
+{% extends 'hostel/hostel_base.html' %}
+
+{% block title %} Create / Update {% endblock %}
+
+{% block body %}
+
+<h1>
+{% if not form.instance.pk %}
+Create Room
+{% else %}
+Update Room
+{% endif %}
+</h1>
+
+<form method = 'POST'>
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'hostel/hostel_base.html' %}
+
+{% block title %} Delete Room {% endblock %}
+
+{% block body %} 
+
+{% load humanize %}
+<h1>Are you sure you want to delete room {{ room.id|apnumber }}?</h1>
+<form method = 'POST'>
+    {% csrf_token %}
+    <input type = 'submit' value = 'Delete' class = 'btn btn-danger'>
+    <a href="{% url 'hostel:room_in_detail' pk=room.pk %}" class='btn btn-success'>No</a>
+</form>
+{% endblock %}

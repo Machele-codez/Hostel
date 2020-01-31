@@ -1,0 +1,2 @@
+DOCS FOR HOSTEL APP
+Just a simple database management system for a hostel

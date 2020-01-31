@@ -1,0 +1,51 @@
+{% extends 'hostel/hostel_base.html' %}
+
+{% load humanize %}
+
+{% block title %} Rooms List {% endblock %}
+
+{% block body %}
+
+{% if rooms %}
+
+    <h1>Here are the currently occupied rooms:</h1>
+    <ol>
+        {% for room in rooms %}
+            <h2>
+                <li><a href="room{{ room.id }}">{{room.id|ordinal|title}}</a></li>
+            </h2>
+        {% endfor %}
+    </ol>
+
+{% else %}
+    <h1>There are currently no occupied rooms</h1>
+{% endif %}
+
+<a href='{% url "hostel:create_room" %}' class="btn btn-primary">
+    Add Room <span class="badge badge-primary">-></span>
+</a>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

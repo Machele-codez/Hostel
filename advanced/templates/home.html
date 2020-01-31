@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block body %} 
+
+<div class="jumbotron">
+    <h1 class="display-1">
+        Welcome to Our Hostel's Home Page!
+    </h1>
+    <a class = 'btn btn-primary' href="{% url 'hostel:rooms' %}">View Rooms</a>
+</div>
+
+{% endblock %}
