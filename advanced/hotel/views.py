@@ -44,7 +44,7 @@ class TenantsCreateView(CreateView):
         # todo: getting the 'room' variable from the GET request (I created the variable in the url coming to this view)
         room_num = self.request.GET.get('room')
         # todo: setting the current modelform object's room field to the value got from above
-        form.instance.room = Room.objects.get(id=room_num)
+        form.instance.room = Room.objects.get(number=room_num)
         return super(TenantsCreateView, self).form_valid(form)
 
     #// # todo: pre-fill form data
@@ -59,3 +59,5 @@ class TenantsCreateView(CreateView):
     #//     return {
     #//         'room':room,
     #//     }
+
+

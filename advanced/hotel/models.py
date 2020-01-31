@@ -16,11 +16,11 @@ class Room(models.Model):
         return reverse("hotel:room_in_detail", kwargs={"pk": self.pk})
     
 class Tenant(models.Model):
-    email_address = models.EmailField()
+    student_ID = models.CharField(max_length = 10, primary_key=True)
     name = models.CharField(max_length = 100)
     level = models.PositiveIntegerField()
     room = models.ForeignKey(Room, on_delete=models.CASCADE, related_name = 'tenants')
-        
+
     def __str__(self):
         return self.name 
 
