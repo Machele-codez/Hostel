@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>{% block title %} Hostel | Base {% endblock %}</title>
+    <title>{% block title %} hotel | Base {% endblock %}</title>
 
     <link rel="stylesheet" href="{% static 'bs4/css/bootstrap.min.css' %}">
 
@@ -16,7 +16,7 @@
 <body>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <ul class="navbar-nav nav">
-            <li class="nav-item"><a href="{% url 'hostel:rooms' %}" class="navbar-brand">Rooms</a></li>
+            <li class="nav-item"><a href="{% url 'hotel:rooms' %}" class="navbar-brand">Rooms</a></li>
             <li class="nav-item"><a href="{% url 'admin:index' %}" class="nav-link">Admin</a></li>
         </ul>
     </nav>

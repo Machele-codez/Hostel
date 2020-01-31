@@ -1,4 +1,4 @@
-{% extends 'hostel/hostel_base.html' %}
+{% extends 'hotel/hotel_base.html' %}
 
 {% block title %} Delete Room {% endblock %}
 
@@ -9,6 +9,6 @@
 <form method = 'POST'>
     {% csrf_token %}
     <input type = 'submit' value = 'Delete' class = 'btn btn-danger'>
-    <a href="{% url 'hostel:room_in_detail' pk=room.pk %}" class='btn btn-success'>No</a>
+    <a href="{% url 'hotel:room_in_detail' pk=room.pk %}" class='btn btn-success'>No</a>
 </form>
 {% endblock %}

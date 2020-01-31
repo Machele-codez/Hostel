@@ -1,4 +1,4 @@
-{% extends 'hostel/hostel_base.html' %}
+{% extends 'hotel/hotel_base.html' %}
 
 {% block title %} Rooms In Detail {% endblock %}
 
@@ -30,11 +30,11 @@
 </table>
 
 <!--? "room" as used below becomes a variable in the url--> 
-<a href='{% url "hostel:create_tenant" pk=room_in_detail.pk %}?room={{room_in_detail.pk}}'class="btn btn-primary"> 
+<a href='{% url "hotel:create_tenant" pk=room_in_detail.pk %}?room={{room_in_detail.pk}}'class="btn btn-primary"> 
     Add Tenant <span class="badge badge-primary"> -> </span>
 </a>
 
-<a href="{% url 'hostel:delete' pk=room_in_detail.pk%}"><button type="submit" class="btn btn-danger">Delete Room</button></a>
+<a href="{% url 'hotel:delete' pk=room_in_detail.pk%}"><button type="submit" class="btn btn-danger">Delete Room</button></a>
 
 
 {% endblock %}

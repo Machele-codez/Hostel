@@ -1,7 +1,7 @@
 from django.urls import path, re_path
-from hostel import views
+from hotel import views
 
-app_name = 'hostel'
+app_name = 'hotel'
 
 urlpatterns = [
     path('', views.RoomsListView.as_view(), name = 'rooms'),

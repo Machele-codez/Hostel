@@ -1,5 +1,5 @@
 from django import forms
-from hostel.models import Tenant
+from hotel.models import Tenant
 
 class NewTenantForm(forms.ModelForm):    
     class Meta:

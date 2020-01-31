@@ -1,8 +1,8 @@
 from django.shortcuts import render
-from hostel.models import Tenant, Room
+from hotel.models import Tenant, Room
 from django.views.generic import ListView, DetailView,TemplateView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from hostel.forms import NewTenantForm
+from hotel.forms import NewTenantForm
 from django.http import request
 
 # Create your views here.
@@ -18,7 +18,7 @@ class RoomsListView(ListView):
 class RoomsDetailView(DetailView):
     model = Room
     context_object_name = 'room_in_detail'
-    template_name = 'hostel/rooms_details.html'
+    template_name = 'hotel/rooms_details.html'
 
 
 class RoomsCreateView(CreateView):
@@ -33,7 +33,7 @@ class RoomsUpdateView(UpdateView):
 
 class RoomsDeleteView(DeleteView):
     model = Room
-    success_url = reverse_lazy('hostel:rooms')
+    success_url = reverse_lazy('hotel:rooms')
     
 
 class TenantsCreateView(CreateView):

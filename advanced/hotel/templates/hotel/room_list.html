@@ -1,4 +1,4 @@
-{% extends 'hostel/hostel_base.html' %}
+{% extends 'hotel/hotel_base.html' %}
 
 {% load humanize %}
 
@@ -21,7 +21,7 @@
     <h1>There are currently no occupied rooms</h1>
 {% endif %}
 
-<a href='{% url "hostel:create_room" %}' class="btn btn-primary">
+<a href='{% url "hotel:create_room" %}' class="btn btn-primary">
     Add Room <span class="badge badge-primary">-></span>
 </a>
 
