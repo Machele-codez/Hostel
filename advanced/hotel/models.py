@@ -7,7 +7,7 @@ class Room(models.Model):
     number = models.PositiveIntegerField(primary_key = True)
     floor = models.CharField(max_length = 256)
     capacity = models.PositiveIntegerField(validators = [validators.MaxValueValidator(4,'Must not exceed 4 members')])
-    #* price_per_head
+    #* price_per_head 
     
     def __str__(self):
         return str(self.number)

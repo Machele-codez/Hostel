@@ -4,11 +4,11 @@
 
 {% block body %} 
 
-<div class="jumbotron">
-    <h1 class="display-1">
-        Welcome to Our hotel's Home Page!
+<div class="jumbotron mt-4">
+    <h1 class="display-2">
+        Hotel Administration Page!
     </h1>
-    <a class = 'btn btn-primary' href="{% url 'hotel:rooms' %}">View Rooms</a>
 </div>
+<a class = 'btn btn-primary' href="{% url 'hotel:rooms' %}">View Rooms</a>
 
 {% endblock %}

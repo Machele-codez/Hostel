@@ -2,20 +2,20 @@
 
 {% load humanize %}
 
+
 {% block title %} Rooms List {% endblock %}
 
 {% block body %}
 
 {% if rooms %}
-
     <h1>Here are the currently occupied rooms:</h1>
-    <ol>
+    <ul>
         {% for room in rooms %}
             <h2>
-                <li><a href="room{{ room.id }}">{{room.id|ordinal|title}}</a></li>
+                <li><a href="room{{ room.pk }}">Room {{room.pk}}</a></li>
             </h2>
         {% endfor %}
-    </ol>
+    </ul>
 
 {% else %}
     <h1>There are currently no occupied rooms</h1>
@@ -27,25 +27,3 @@
 
 
 {% endblock %}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

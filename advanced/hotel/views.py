@@ -34,30 +34,31 @@ class RoomsUpdateView(UpdateView):
 class RoomsDeleteView(DeleteView):
     model = Room
     success_url = reverse_lazy('hotel:rooms')
-    
+
+
+class TenantsDetailView(DetailView):
+    model = Tenant
+    context_object_name = 'tenant_in_detail'
+
 
 class TenantsCreateView(CreateView):
     model = Tenant
-    form_class = NewTenantForm #? the form_class attribute allows replacement of default CreateView form
+    # ? the form_class attribute allows replacement of default CreateView form
+    form_class = NewTenantForm
 
     def form_valid(self, form):
         # todo: getting the 'room' variable from the GET request (I created the variable in the url coming to this view)
         room_num = self.request.GET.get('room')
-        # todo: setting the current modelform object's room field to the value got from above
+        # todo: setting the current modelform's room field to the value gotten from above
         form.instance.room = Room.objects.get(number=room_num)
         return super(TenantsCreateView, self).form_valid(form)
 
-    #// # todo: pre-fill form data
-    # ! this is inefficient as hidden inputs can be edited hackily (even with readonly attribute)
-    #// """
-    #// ?get_initial is a method that needs to be overrided in order to pre-fill form data
-    #// ?it returns a dictionary with keys as form fields and values representing intended prefilled data
-    #// """
-    #// def get_initial(self):  
-    #//     room = self.request.GET.get('room') #todo: getting the 'room' variable from the GET request (I created the variable in the url coming to this view) 
-    #//     # print(self.request.GET)
-    #//     return {
-    #//         'room':room,
-    #//     }
 
+class TenantsDeleteView(DeleteView):
+    model = Tenant
+
+    # todo: override get_success_url to pass in GET variable as argument for redirection url after object deletion
+    def get_success_url(self):
+        room_num = self.request.GET['room']
+        return reverse_lazy('hotel:room_in_detail', kwargs = {'pk':room_num})
 

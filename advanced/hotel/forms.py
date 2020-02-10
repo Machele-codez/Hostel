@@ -19,3 +19,10 @@ class NewTenantForm(forms.ModelForm):
         if len(student_id) != 10:
             raise(forms.ValidationError('student_ID must consist of ten characters'))
         return student_id
+
+    def clean_level(self):
+        level = self.cleaned_data['level']
+        approved_levels = [100,200,300,400,500,600] 
+        if level not in approved_levels:
+            raise forms.ValidationError('Please enter a valid level. Eg. 300')
+        return level
