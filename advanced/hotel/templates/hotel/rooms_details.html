@@ -3,58 +3,69 @@
 {% block title %} Rooms In Detail {% endblock %}
 
 {% block body %}
+<div class="container">
 
-<h1>Showing details for <em>Room:{{room_in_detail.number}}</em> </h1>
-
-<p><b>Floor:</b> {{room_in_detail.floor}}</p>
-<p><b>Capacity:</b> {{room_in_detail.capacity}}</p>
-
-{% if room_in_detail.tenants.all %}
-
-    <h2>Students in Room:</h2>
-    <table class="table table-striped table-inverse table-responsive">
-        <thead class="thead-inverse">
-            <tr>
-                <th>Student ID</th>
-                <th>Name</th>
-                <th>Level</th>
-                <th></th>
-            </tr>
-        </thead>
-            <tbody>
-                {% for tenant in room_in_detail.tenants.all %}
-                <tr>
-                    <td scope="row">{{tenant.student_ID}}</td>
-                    <td>{{tenant|title}}</td>
-                    <td>{{tenant.level}}</td>
-                    <td>
-                        <a href="{% url 'hotel:delete_tenant' pk=tenant.pk%}?room={{room_in_detail.pk}}">
-                            <button type="submit"class="btn btn-warning">Remove Tenant</button>
-                        </a>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-    </table>
-
-{% else %}
-    <p>There are currently no students in this room</p>
-{% endif %}
-
-
-{% if room_in_detail.tenants.all|length < room_in_detail.capacity %}
-    <!--? "room" as used below becomes a variable in the url--> 
-    <a href='{% url "hotel:create_tenant" pk=room_in_detail.pk %}?room={{room_in_detail.pk}}'class="btn btn-primary"> 
-        Add Tenant <span class="badge badge-primary"> -> </span>
-    </a>
-
-{% else %}
-
-<p><i>The room has reached its full capacity</i></p>
-
-{% endif %}
+    <h1>Showing details for <em>Room {{room_in_detail.number}}</em> </h1>
     
+    <p><b>Floor:</b> {{room_in_detail.floor}}</p>
+    <p><b>Capacity:</b> {{room_in_detail.capacity}}</p>
+    
+    
+    {% if room_in_detail.tenants.all %}
+        
+        <h2>Occupants</h2>
+        <table class="mt-4 table table-striped table-inverse table-responsive">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Level</th>
+                    <th></th>
+                </tr>
+            </thead>
+                <tbody>
+                    {% for tenant in room_in_detail.tenants.all %}
+                    <tr>
+                        <td scope="row">{{tenant.student_ID}}</td>
+                        <td>{{tenant|title}}</td>
+                        <td>{{tenant.level}}</td>
+                        <td>
+                            <a href="{% url 'hotel:delete_tenant' pk=tenant.pk%}?room={{room_in_detail.pk}}">
+                                <button type="submit"class="btn btn-danger">
+                                    <i class="fas fa-walking"></i> <i class="fas fa-door-open"></i>
+                                </button>
+                            </a>
+                            <a href="{% url 'hotel:delete_tenant' pk=tenant.pk%}?room={{room_in_detail.pk}}">
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-redo"></i>
+                                </button>
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+        </table>
+    
+    {% else %}
+        <p>There are currently no students in this room</p>
+    {% endif %}
+    
+    
+    {% if room_in_detail.tenants.all|length < room_in_detail.capacity %}
+        <!--? "room" as used below becomes a variable in the url--> 
+        <a href='{% url "hotel:create_tenant" pk=room_in_detail.pk %}?room={{room_in_detail.pk}}'class="btn btn-primary"> 
+            Add Tenant <span class="badge badge-primary"> -> </span>
+        </a>
+    
+    {% else %}
+    
+    <p><i>The room has reached its full capacity</i></p>
+    
+    {% endif %}
+        
+    
+        <a href="{% url 'hotel:delete_room' pk=room_in_detail.pk%}"><button type="submit" class="btn btn-danger">Delete Room</button></a>
+</div>
 
-    <a href="{% url 'hotel:delete_room' pk=room_in_detail.pk%}"><button type="submit" class="btn btn-danger">Delete Room</button></a>
 
 {% endblock %}

@@ -4,18 +4,31 @@
 
 {% block body %}
 
-<h1>
-    {% if not form.instance.pk %}
-    Add Tenant
-    {% else %}
-    Update Tenant Details
-    {% endif %}
-</h1>
+{% load crispy_forms_tags %}
 
-<form method='POST'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit" class="btn btn-primary">Create</button>
-</form>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h1>
+                        {% if not form.instance.pk %}
+                        Add Tenant
+                        {% else %}
+                        Update Tenant Details
+                        {% endif %}
+                    </h1>
+                </div>
+                <div class="card-body">
+                    <form method='POST' novalidate>
+                        {% csrf_token %}
+                        {{form|crispy}}
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>        
+</div>
 
 {% endblock %}

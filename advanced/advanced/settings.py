@@ -39,10 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'hotel',
     'django.contrib.humanize',
-    'sweetify',
+    'crispy_forms',
 ]
 
-SWEETIFY_SWEETALERT_LIBRARY = 'sweetalert2'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -122,7 +122,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/statics/' #! sometimes '/static/' must be changed to link the css files 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')
 ]
+
+
+# MEDIA_URL = '/media/'
+# MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+
+LOGIN_REDIRECT_URL = '/hotel/' #? URL to redirect to after login

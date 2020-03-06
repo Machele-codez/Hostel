@@ -5,10 +5,12 @@
 {% block body %}
 
 {% load humanize %}
-<h1>Are you sure you want to remove tenant {{ tenant.name }}?</h1>
-<form method='POST'>
-    {% csrf_token %}
-    <input type='submit' value='Delete' class='btn btn-danger'>
-    <a href="{% url 'hotel:room_in_detail' pk=tenant.room.pk %}" class='btn btn-success'>No</a>
-</form>
+<div class="container">
+    <h1>Are you sure you want to remove {{ tenant.name }} from room {{ tenant.room }}?</h1>
+    <form method='POST'>
+        {% csrf_token %}
+        <input type='submit' value='Delete' class='btn btn-danger'>
+        <a href="{% url 'hotel:room_in_detail' pk=tenant.room.pk %}" class='btn btn-success'>No</a>
+    </form>
+</div>
 {% endblock %}

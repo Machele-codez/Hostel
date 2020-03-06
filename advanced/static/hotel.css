@@ -1,0 +1,61 @@
+nav{
+    font-size: 1.75rem;
+}
+
+.asteriskField{
+    display: none;
+}
+
+.table .btn{
+    border: none;
+}
+
+#content{
+    position: relative;
+    min-height: 100vh;
+}
+
+.header{
+    text-align: center;
+}
+
+
+
+#actions a{
+    display: block;
+    /* padding: .75rem; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1rem;
+}
+
+
+/* NAVBAR */
+.navbar-nav{
+    width: 100%;
+}
+
+#user_name{
+    width: auto;
+}
+
+footer{
+    position: absolute;
+    right: 0px;
+    bottom: 0;
+}
+
+/* TABLE */
+
+tr:nth-of-type(even) .py-4 a{
+    background-color: #f8f9fa;
+
+}
+
+tr:nth-of-type(even) .py-4 a{
+    background-color: rgb(242, 242, 242);
+}
+
+tr:nth-of-type(even) .py-4 a:hover{
+    background-color: rgb(152, 152, 152);
+}
+

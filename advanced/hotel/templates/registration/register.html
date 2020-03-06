@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{% static 'bs4/css/bootstrap.min.css' %}">
+</head>
+<body>
+    <div class="container mt-4">
+        
+        {% if form.errors %}
+            <p>There are some errors</p>
+        {% endif %}
+            
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Register</button>   
+        </form>
+    </div>
+</body>
+</html>
